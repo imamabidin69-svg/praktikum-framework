@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Data Hasil Panen</title>
 </head>
+<div style="margin-bottom: 20px;">
+    <a href="/dashboard">« Kembali ke Dashboard</a>
+</div>
 <body style="font-family: Arial, sans-serif; padding: 20px;">
     <h2>Daftar Hasil Panen Pertanian</h2>
     <div style="margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; background-color: #f9f9f9;">
