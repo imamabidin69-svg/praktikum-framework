@@ -9,6 +9,25 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    public function login(Request $request)
+    {
+        // Mencari user berdasarkan email
+        $user = User::where('email', $request->email)->first();
+
+        // Cek jika user tidak ada atau password salah
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return response()->json(['message' => 'Kredensial salah'], 401);
+        }
+
+        // Membuat token menggunakan Sanctum
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+        ], 200);
+    }
+    
     public function showRegister() {
         return view('register');
     }
